@@ -1,0 +1,66 @@
+<template>
+  <lightning-card title="Quiz Application">
+    <form>
+      <template if:true={showMessage}>
+        <div class={allCorrect}>
+          You have answered correctly
+          <strong> {correctAnswers} </strong> out of
+          <strong> {quizQuestions.length} </strong>
+        </div>
+      </template>
+      <template for:each={quizQuestions} for:item="quiz">
+        <div key={quiz.id} class="slds-var-m-around_medium">
+          <strong>{quiz.id}: {quiz.question}</strong>
+        </div>
+        <div key={quiz.choices.id} class="slds-var-m-around_medium">
+          <div class="slds-grid slds-gutters slds-m-bottom_medium">
+            <div class="slds-col slds-p-bottom_medium">
+              <input
+                type="radio"
+                value="a"
+                name={quiz.id}
+                onchange={changeHandler}
+              />
+              {quiz.choices.a}
+            </div>
+            <div class="slds-col slds-p-bottom_medium">
+              <input
+                type="radio"
+                value="b"
+                name={quiz.id}
+                onchange={changeHandler}
+              />
+              {quiz.choices.b}
+            </div>
+            <div class="slds-col slds-p-bottom_medium">
+              <input
+                type="radio"
+                value="c"
+                name={quiz.id}
+                onchange={changeHandler}
+              />
+              {quiz.choices.c}
+            </div>
+          </div>
+        </div>
+      </template>
+      <lightning-button
+        variant="brand"
+        label="Submit"
+        type="Submit"
+        title="Submit Quiz"
+        disabled={allNotAnswered}
+        onclick={handleSubmit}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+      <lightning-button
+        variant="brand"
+        label="Reset"
+        type="Reset"
+        title="Reset Quiz"
+        onclick={handleReset}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+    </form>
+  </lightning-card>
+</template>
