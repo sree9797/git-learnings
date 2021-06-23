@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Render Method" icon-name="custom:custom14">
+        <div class="slds-var-m-around_xx-small">
+            <h1 class="slds-text-heading_large">Signup Form</h1>
+        </div>
+        <div class="slds-var-m-around_xx-small">
+            <lightning-input type="text" label="First Name"></lightning-input>
+            <lightning-input type="text" label="Lats Name"></lightning-input>
+            <lightning-input type="email" label="Email"></lightning-input>
+            <lightning-input type="password" label="Password"></lightning-input>
+        </div>
+        <div class="slds-var-m-around_large">
+            <lightning-button
+            variant="destructive"
+            label="Back"
+            title="Sign In"
+            onclick={handleClick}
+            class="slds-var-m-left_x-small"
+        >
+        </lightning-button>
+            <lightning-button
+            variant="brand"
+            label="Signup"
+            title="Sign Up"
+            onclick={singupHandler}
+            class="slds-var-m-left_x-small"
+        >
+        </lightning-button>
+        </div>
+    </lightning-card>
+</template>

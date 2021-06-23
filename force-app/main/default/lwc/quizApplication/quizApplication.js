@@ -80,6 +80,7 @@ export default class QuizApplication extends LightningElement {
     this.showMessage = true;
     this.correctAnswers = chk.length;
   }
+  //to handle reset button action
   handleReset(event) {
     this.selected = {};
     this.correctAnswers = 0;
