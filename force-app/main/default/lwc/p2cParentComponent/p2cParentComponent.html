@@ -1,5 +1,6 @@
 <template>
     <lightning-card title="P2C Parent Comp">
+    <!-- Simple Primitive Data Passing-->
         <div class="slds-var-m-around_medium">
             <!-- if we dont assign a value to attribute then it will be always true -->
             <c-p2c-alert-component
@@ -9,11 +10,30 @@
             >
             </c-p2c-alert-component>
         </div>
-
+    <!-- Complex Data Passing-->
         <div class="slds-var-m-bottom_medium"></div>
         <c-p2c-carousel-component
             carousel-details = {carouselData}
         >
         </c-p2c-carousel-component>
     </lightning-card>
+    <div class="slds-var-m-bottom_medium"></div>
+    <lightning-card title="Pass Data to child based on Action in Parent">
+        <lightning-input type="number"
+                        label="Percentage"
+                        value={percentage}
+                        onkeyup={changeHandler}>
+        </lightning-input>
+        <c-p2c-progress-component
+            progress-value = {percentage}
+        >
+        </c-p2c-progress-component>
+    </lightning-card>
+    <div class="slds-var-m-bottom_medium"></div>
+    <lightning-button 
+        variant="brand" 
+        label="Reset Slider" 
+        onclick={handleClick}>
+    </lightning-button>
+    <c-p2c-slider-component></c-p2c-slider-component>
 </template>
